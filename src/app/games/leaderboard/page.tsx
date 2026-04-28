@@ -1,9 +1,7 @@
 "use client";
 
-import { getScores } from "@/lib/localLeaderboard";
-
 export default function Page() {
-  const scores = getScores();
+  const scores = JSON.parse(localStorage.getItem("scores") || "[]");
 
   return (
     <div className="p-6 text-center space-y-4">
