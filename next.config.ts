@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+const nextConfig = {
+  turbopack: {
+    root: "D:/my-games/my-game", // 👈 اپنا اصل project path
+  },
 };
 
 export default nextConfig;
