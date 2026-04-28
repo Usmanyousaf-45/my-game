@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GameCard from "@/components/GameCard";
+import GameScene from "@/game3d/GameScene";
 
 export default function Home() {
   return (
@@ -10,7 +11,6 @@ export default function Home() {
         <GameCard title="Memory Game" link="/games/memory" />
         <GameCard title="Sudoku" link="/games/sudoku" />
         <GameCard title="Sliding Puzzle" link="/games/sliding" />
-        <GameCard title="Word Connect" link="/games/wordconnect" />
         <GameCard title="Snake Game" link="/games/snake" />
       </div>
     </div>

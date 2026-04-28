@@ -4,8 +4,7 @@ const games = [
   { name: "🧠 Memory Game", path: "/games/memory" },
   { name: "🧩 Sudoku", path: "/games/sudoku" },
   { name: "🎮 Sliding Puzzle", path: "/games/sliding" },
-  { name: "🔥 Word Connect PRO", path: "/games/wordconnect" },
-  { name: "🐍 Snake Game", path: "/games/snake" }
+  { name: "🐍 Snake Game", path: "/games/snake" },
 ];
 
 export default function GamesPage() {
