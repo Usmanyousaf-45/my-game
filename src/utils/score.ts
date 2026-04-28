@@ -1,11 +1,40 @@
-export function saveScore(game: string, score: number) {
-  const old = JSON.parse(localStorage.getItem("scores") || "{}");
+// utils/score.ts
 
-  old[game] = Math.max(old[game] || 0, score);
+const STORAGE_KEY = "scores";
 
-  localStorage.setItem("scores", JSON.stringify(old));
+function isClient() {
+  return typeof window !== "undefined";
 }
 
-export function getScores() {
-  return JSON.parse(localStorage.getItem("scores") || "{}");
+type Scores = Record<string, number>;
+
+export function saveScore(game: string, score: number) {
+  if (!isClient()) return;
+
+  try {
+    const old: Scores = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+
+    old[game] = Math.max(old[game] || 0, score);
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(old));
+  } catch (err) {
+    console.error("Failed to save score:", err);
+  }
+}
+
+export function getScores(): Scores {
+  if (!isClient()) return {};
+
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  } catch (err) {
+    console.error("Failed to get scores:", err);
+    return {};
+  }
+}
+
+export function clearScores() {
+  if (!isClient()) return;
+
+  localStorage.removeItem(STORAGE_KEY);
 }
