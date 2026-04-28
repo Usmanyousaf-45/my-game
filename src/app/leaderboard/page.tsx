@@ -7,12 +7,13 @@ export default function Leaderboard() {
   const [scores, setScores] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    setScores(getScores());
+    const data = getScores(); // runs ONLY in browser
+    setScores(data);
   }, []);
 
   return (
     <div>
-      <h1>Leaderboard</h1>
+      <h1>🏆 Leaderboard</h1>
     </div>
   );
 }
